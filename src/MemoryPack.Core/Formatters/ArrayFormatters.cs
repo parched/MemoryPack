@@ -92,7 +92,7 @@ namespace MemoryPack.Formatters
         public override void Deserialize(ref MemoryPackReader reader, scoped ref ArraySegment<T?> value)
         {
             var array = reader.ReadArray<T>();
-            value = (array == null) ? default : (ArraySegment<T?>)array;
+            value = (array == null) ? default : new ArraySegment<T?>(array);
         }
     }
 

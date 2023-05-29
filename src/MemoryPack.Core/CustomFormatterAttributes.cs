@@ -47,6 +47,8 @@ public sealed class BitPackFormatterAttribute : MemoryPackCustomFormatterAttribu
     }
 }
 
+#if NETSTANDARD2_1_OR_GREATER || NET5_0_OR_GREATER
+
 public sealed class BrotliFormatterAttribute : MemoryPackCustomFormatterAttribute<BrotliFormatter, byte[]>
 {
     public System.IO.Compression.CompressionLevel CompressionLevel { get; }
@@ -101,6 +103,8 @@ public sealed class BrotliStringFormatterAttribute : MemoryPackCustomFormatterAt
         return new BrotliStringFormatter(CompressionLevel, Window, DecompressionSizeLimit);
     }
 }
+
+#endif
 
 public sealed class MemoryPoolFormatterAttribute<T> : MemoryPackCustomFormatterAttribute<MemoryPoolFormatter<T>, Memory<T?>>
 {

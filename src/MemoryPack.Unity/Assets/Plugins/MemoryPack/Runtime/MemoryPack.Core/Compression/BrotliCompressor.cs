@@ -16,6 +16,8 @@ using System.Runtime.InteropServices;
 
 namespace MemoryPack.Compression {
 
+#if NETSTANDARD2_1_OR_GREATER || NET5_0_OR_GREATER
+
 #if !NET7_0_OR_GREATER
 #pragma warning disable CS8602
 #endif
@@ -293,5 +295,7 @@ internal static partial class BrotliUtils
         return (result < input_size) ? 0 : result;
     }
 }
+
+#endif
 
 }

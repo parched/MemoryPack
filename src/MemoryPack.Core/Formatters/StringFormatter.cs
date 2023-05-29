@@ -92,6 +92,8 @@ public sealed class InternStringFormatter : MemoryPackFormatter<string>
     }
 }
 
+#if NETSTANDARD2_1_OR_GREATER || NET5_0_OR_GREATER
+
 [Preserve]
 public sealed class BrotliStringFormatter : MemoryPackFormatter<string>
 {
@@ -266,3 +268,5 @@ public sealed class BrotliStringFormatter : MemoryPackFormatter<string>
         }
     }
 }
+
+#endif

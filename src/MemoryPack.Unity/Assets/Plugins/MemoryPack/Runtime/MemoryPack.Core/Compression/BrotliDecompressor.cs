@@ -14,6 +14,8 @@ using System.IO.Compression;
 
 namespace MemoryPack.Compression {
 
+#if NETSTANDARD2_1_OR_GREATER || NET5_0_OR_GREATER
+
 public struct BrotliDecompressor : IDisposable
 {
     ReusableReadOnlySequenceBuilder? sequenceBuilder;
@@ -126,7 +128,7 @@ public struct BrotliDecompressor : IDisposable
                     MemoryPackSerializationException.ThrowCompressionFailed();
                 }
 
-                // continue for next sequence. 
+                // continue for next sequence.
                 return;
             }
 
@@ -158,5 +160,7 @@ public struct BrotliDecompressor : IDisposable
         return Math.Max(newCapacity, 4096);
     }
 }
+
+#endif
 
 }

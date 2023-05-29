@@ -17,6 +17,8 @@ namespace MemoryPack.Compression {
 
 // serialize as (uncompressedLength, compressedLength, values...)
 
+#if NETSTANDARD2_1_OR_GREATER || NET5_0_OR_GREATER
+
 [Preserve]
 public sealed class BrotliFormatter : MemoryPackFormatter<byte[]>
 {
@@ -209,5 +211,7 @@ public sealed class BrotliFormatter<T> : MemoryPackFormatter<T>
         reader.Advance(consumed);
     }
 }
+
+#endif
 
 }
